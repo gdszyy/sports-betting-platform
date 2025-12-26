@@ -22,6 +22,8 @@ interface BetSlipStore {
   removeSelection: (id: string) => void;
   updateStake: (id: string, stake: number) => void;
   setGlobalStake: (stake: number) => void;
+  oddsChangePolicy: 'none' | 'any' | 'higher';
+  setOddsChangePolicy: (policy: 'none' | 'any' | 'higher') => void;
   clearSelections: () => void;
 }
 
@@ -29,6 +31,7 @@ export const useBetSlipStore = create<BetSlipStore>((set) => ({
   mode: 'single',
   selections: [],
   globalStake: 0,
+  oddsChangePolicy: 'higher',
   setMode: (mode) => set({ mode }),
   addSelection: (selection) =>
     set((state) => {
@@ -51,5 +54,6 @@ export const useBetSlipStore = create<BetSlipStore>((set) => ({
       ),
     })),
   setGlobalStake: (globalStake) => set({ globalStake }),
+  setOddsChangePolicy: (oddsChangePolicy) => set({ oddsChangePolicy }),
   clearSelections: () => set({ selections: [], globalStake: 0 }),
 }));
