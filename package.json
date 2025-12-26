@@ -5,7 +5,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "install": "cd frontend && pnpm install",
     "dev": "cd frontend && pnpm dev",
     "build": "cd frontend && pnpm build",
     "lint": "cd frontend && pnpm lint",
