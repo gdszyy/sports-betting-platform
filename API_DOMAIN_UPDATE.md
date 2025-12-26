@@ -120,6 +120,8 @@ export class WebSocketClient {
 ## 相关文档
 
 - [API配置文档](config/api.config.md)
+- [连接器配置文档](config/connectors.config.md)
+- [任务执行日志](TASK_EXECUTION_LOG.md)
 - [前端产品交互文档](docs/design/前端产品交互文档.md)
 - [环境变量示例](.env.example)
 
