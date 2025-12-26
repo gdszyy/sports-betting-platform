@@ -48,7 +48,7 @@
 - [ ] 比赛导航模块
 - [ ] 比赛列表模块
 - [ ] 盘口展示模块
-- [ ] 投注单模块
+- [x] 投注单模块 (VOI-71)
 - [ ] WebSocket 集成
 
 ---
@@ -83,6 +83,12 @@ matches.forEach(match => {
 ```
 优先级 1: Groups 字段 → 优先级 2: Specifiers 字段 → 优先级 3: 默认分配（"流行"）
 ```
+
+### 3.5 投注单状态管理
+
+- 使用 **Zustand** 进行状态管理，支持 `single` 和 `parlay` 模式。
+- 投注项数据结构包含 `matchId`, `marketId`, `outcomeId`, `odds` 等核心字段。
+- 单关模式下金额存储在每个 `selection` 对象中，串关模式下使用 `globalStake`。
 
 ---
 
