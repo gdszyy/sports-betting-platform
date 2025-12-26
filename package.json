@@ -1,0 +1,13 @@
+{
+  "name": "sports-betting-platform",
+  "version": "1.0.0",
+  "description": "Sports Betting Platform",
+  "scripts": {
+    "install": "cd frontend && pnpm install",
+    "build": "cd frontend && pnpm build",
+    "start": "sh start.sh"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
