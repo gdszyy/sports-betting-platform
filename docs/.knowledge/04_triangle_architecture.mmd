@@ -1,0 +1,47 @@
+flowchart TB
+    subgraph HUMAN["Human - Objective Function"]
+        REVIEW["Review Delivery"]
+        FEEDBACK["Iterate & Feedback"]
+    end
+
+    subgraph GITHUB["GitHub - Hard Memory"]
+        REPO["Repository"]
+        KB["Knowledge Base"]
+        CODE["Deliverables"]
+    end
+
+    subgraph LINEAR["Linear - Info Hub"]
+        BACKLOG["Backlog"]
+        PROGRESS["In Progress"]
+        DONE["Done"]
+    end
+
+    subgraph RAILWAY["Railway - Real-time Deploy"]
+        DEPLOY["Auto Deploy"]
+        LIVE["Live Preview"]
+    end
+
+    subgraph MANAGER["Manager Agent"]
+        DISPATCH["Task Dispatch"]
+        ASSIGN["Model Selection"]
+    end
+
+    subgraph EXECUTOR["Executor Agent"]
+        DEV["Develop"]
+        COMMIT["Commit & PR"]
+    end
+
+    BACKLOG -->|"Fetch Task"| DISPATCH
+    DISPATCH --> ASSIGN
+    ASSIGN -->|"Create Task"| DEV
+    DEV -->|"Read Context"| KB
+    DEV --> COMMIT
+    COMMIT --> REPO
+    REPO -->|"Push"| DEPLOY
+    DEPLOY --> LIVE
+    LIVE -->|"View Result"| REVIEW
+    REVIEW -->|"Approve"| DONE
+    REVIEW -->|"Request Changes"| FEEDBACK
+    FEEDBACK -->|"New Issue"| BACKLOG
+    COMMIT -->|"Update Status"| PROGRESS
+    PROGRESS --> DONE
