@@ -34,8 +34,10 @@ export const useBetSlipStore = create<BetSlipStore>((set) => ({
     set((state) => {
       const exists = state.selections.find((s) => s.id === selection.id);
       if (exists) {
+        // 如果已存在，则移除（切换选中状态）
         return { selections: state.selections.filter((s) => s.id !== selection.id) };
       }
+      // 如果不存在，则添加，初始金额为 0
       return { selections: [...state.selections, { ...selection, stake: 0 }] };
     }),
   removeSelection: (id) =>
