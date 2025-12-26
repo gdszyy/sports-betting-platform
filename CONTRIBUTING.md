@@ -72,25 +72,35 @@ git commit -m "refactor(VOI-XX): 重构盘口分类逻辑"
 git commit -m "test(VOI-XX): 添加单元测试"
 ```
 
-### 5. Pull Request
+### 5. 合并代码
 
-1. 推送分支到远程仓库
+1. 切换到 main 分支
    ```bash
-   git push origin feature/VOI-XX-description
+   git checkout main
+   git pull origin main
    ```
 
-2. 创建 Pull Request
-   - 标题: `[VOI-XX] 功能描述`
-   - 描述: 包含任务链接和变更说明
-   - 关联 Linear Issue
+2. 合并功能分支
+   ```bash
+   git merge feature/VOI-XX-description --no-ff -m "merge: VOI-XX 功能描述"
+   ```
 
-3. 等待代码审查
+3. 推送到远程
+   ```bash
+   git push origin main
+   ```
+
+4. 删除功能分支
+   ```bash
+   git branch -d feature/VOI-XX-description
+   git push origin --delete feature/VOI-XX-description
+   ```
 
 ### 6. 完成任务
 
-1. PR 合并后，更新 Linear 任务状态为 "Done"
-2. 更新 `HANDOVER_DOCUMENT.md` 中的进度
-3. 删除本地和远程功能分支
+1. 更新 Linear 任务状态为 "Done"
+2. 在 Linear Issue 中添加 commit SHA 作为附件
+3. 更新 `HANDOVER_DOCUMENT.md` 中的进度
 
 ## 模型选择指南
 

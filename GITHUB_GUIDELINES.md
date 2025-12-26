@@ -43,11 +43,11 @@ zhaoyiyinwinnie/voi-68-feature-盘口展示与tabchip分类
 | 重构分支 | `{username}/voi-{number}-refactor-{desc}` | 代码重构 |
 | 文档分支 | `{username}/voi-{number}-docs-{desc}` | 文档更新 |
 
-### 2.3 主分支保护
+### 2.3 主分支管理
 
-- `main` 分支为受保护分支
-- 所有代码必须通过 Pull Request 合并
-- 合并后自动删除功能分支
+- `main` 分支为默认分支
+- 功能开发完成后直接合并到 main 分支
+- 合并后删除功能分支
 
 ---
 
@@ -101,56 +101,39 @@ Closes: VOI-76
 
 ---
 
-## 四、Pull Request 规范
+## 四、代码合并规范
 
-### 4.1 PR 标题格式
+### 4.1 合并流程
 
-```
-<type>: <description> [<linear-issue-id>]
-```
+**重要更新**: 任务完成后**直接合并到 main 分支**，不再创建 Pull Request。
 
-**示例**：
-```
-feat: 实现投注单基础框架与模式切换 [VOI-71]
-fix: 修复部署 MIME type 错误 [VOI-76]
-```
+1. 切换到 main 分支
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
 
-### 4.2 PR 描述模板
+2. 合并功能分支
+   ```bash
+   git merge {gitBranchName} --no-ff -m "merge: VOI-XX 功能描述"
+   ```
 
-```markdown
-## 关联 Issue
+3. 推送到远程
+   ```bash
+   git push origin main
+   ```
 
-Linear Issue: [VOI-XX](https://linear.app/voidzyy/issue/VOI-XX)
+4. 删除功能分支
+   ```bash
+   git branch -d {gitBranchName}
+   git push origin --delete {gitBranchName}
+   ```
 
-## 变更内容
+### 4.2 合并后操作
 
-- [ ] 功能点 1
-- [ ] 功能点 2
-- [ ] 功能点 3
-
-## 测试情况
-
-- [ ] 本地开发环境测试通过
-- [ ] TypeScript 类型检查通过
-- [ ] 构建测试通过
-
-## 截图/演示
-
-（如适用，添加截图或 GIF）
-
-## 备注
-
-（其他需要说明的内容）
-```
-
-### 4.3 PR 合并规则
-
-1. **自动关联 Linear Issue**：PR 标题或描述中包含 `[VOI-XX]` 会自动关联
-2. **合并方式**：使用 Squash and Merge 保持提交历史清晰
-3. **合并后操作**：
-   - 自动删除功能分支
-   - 在 Linear 中手动更新 Issue 状态为 Done
-   - 在 Linear Issue 中添加 PR 链接作为附件
+1. 在 Linear 中更新 Issue 状态为 Done
+2. 在 Linear Issue 中添加 commit SHA 作为附件
+3. 在 Linear Issue 中添加评论记录交付信息
 
 ---
 
@@ -262,11 +245,11 @@ Linear Issue: [VOI-XX](https://linear.app/voidzyy/issue/VOI-XX)
 - 查看任务状态、优先级、依赖关系
 - 通过 Linear Issue 查看关联的 GitHub PR
 
-### Q3: PR 合并后需要做什么？
+### Q3: 代码合并后需要做什么？
 
 **A**: 
 1. 在 Linear Issue 中更新状态为 Done
-2. 在 Linear Issue 中添加 PR 链接作为附件
+2. 在 Linear Issue 中添加 commit SHA 作为附件
 3. 在 Linear Issue 中添加评论记录交付信息
 4. 验证功能是否正常
 
@@ -275,8 +258,9 @@ Linear Issue: [VOI-XX](https://linear.app/voidzyy/issue/VOI-XX)
 **A**: 
 1. 在 Linear 中创建 Issue，优先级设为 Urgent
 2. 创建修复分支：`{username}/voi-{number}-fix-{desc}`
-3. 提交 PR 并关联 Linear Issue
-4. 合并后更新 Linear Issue 状态
+3. 开发修复功能并测试
+4. 直接合并到 main 分支
+5. 更新 Linear Issue 状态
 
 ---
 

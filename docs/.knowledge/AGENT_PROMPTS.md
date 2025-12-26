@@ -127,12 +127,12 @@
 
 ### 第三步: 提交代码
 1. 提交代码: `git commit -m "feat(VOI-XX): {简短描述}"`
-2. 推送分支: `git push origin {gitBranchName}`
-3. 创建 Pull Request
+2. 合并到 main 分支: `git checkout main && git merge {gitBranchName} --no-ff`
+3. 推送到远程: `git push origin main`
 
 ### 第四步: 更新状态
-1. 更新 Linear Issue 状态为 "In Review"
-2. 在 PR 描述中关联 Linear Issue
+1. 更新 Linear Issue 状态为 "Done"
+2. 在 Linear Issue 中添加 commit SHA 作为附件
 3. 更新交接文档中的进度
 
 ## 验收标准
@@ -172,11 +172,13 @@
 ### 第三步: 验证修复
 1. 确认问题已修复
 2. 确认没有引入新问题
-3. 提交并创建 PR
+3. 提交代码: `git commit -m "fix(VOI-XX): {简短描述}"`
+4. 合并到 main 分支: `git checkout main && git merge {gitBranchName} --no-ff`
+5. 推送到远程: `git push origin main`
 
 ### 第四步: 更新状态
-1. 更新 Linear Issue 状态
-2. 在 PR 中说明修复方案
+1. 更新 Linear Issue 状态为 "Done"
+2. 在 Linear Issue 中添加 commit SHA 和修复方案说明
 ```
 
 ### 3.3 文档任务 (Docs)
