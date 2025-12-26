@@ -96,8 +96,10 @@ interface BetSlipStore {
 3. 阅读产品文档理解需求
 4. 实现组件和状态管理
 5. 测试功能
-6. 提交代码并创建 Pull Request
+6. 提交代码并直接合并到 main 分支
 7. 更新 Linear Issue 状态为 Done
+
+**重要**: 不要创建 Pull Request，直接将代码合并到 main 分支。
 
 请开始执行任务，有任何问题随时告诉我。
 ```
@@ -113,5 +115,5 @@ interface BetSlipStore {
 - [ ] 状态管理已实现
 - [ ] TypeScript 检查通过
 - [ ] 代码已提交
-- [ ] PR 已创建
+- [ ] 代码已合并到 main 分支
 - [ ] Linear Issue 已更新

@@ -233,8 +233,10 @@ const calculatePotentialWin = (stake: number, odds: number): number => {
 4. 实现组合数学算法
 5. 实现 UI 组件
 6. 充分测试各种场景
-7. 提交代码并创建 Pull Request
+7. 提交代码并直接合并到 main 分支
 8. 更新 Linear Issue 状态为 Done
+
+**重要**: 不要创建 Pull Request，直接将代码合并到 main 分支。
 
 **注意**: 这是一个复杂任务，建议分步实现：
 1. 先实现 System Bet 的基础功能
@@ -258,7 +260,7 @@ const calculatePotentialWin = (stake: number, odds: number): number => {
 - [ ] UI 组件已创建
 - [ ] 充分测试
 - [ ] 代码已提交
-- [ ] PR 已创建
+- [ ] 代码已合并到 main 分支
 - [ ] Linear Issue 已更新
 
 ---

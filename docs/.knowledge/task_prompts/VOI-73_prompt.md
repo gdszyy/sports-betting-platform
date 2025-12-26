@@ -150,8 +150,10 @@ const submitBet = async () => {
 3. 基于 VOI-71 和 VOI-72 的代码进行扩展
 4. 实现状态机和悬浮窗
 5. 测试投注流程
-6. 提交代码并创建 Pull Request
+6. 提交代码并直接合并到 main 分支
 7. 更新 Linear Issue 状态为 Done
+
+**重要**: 不要创建 Pull Request，直接将代码合并到 main 分支。
 
 请开始执行任务。
 ```
@@ -167,5 +169,5 @@ const submitBet = async () => {
 - [ ] 等待时间逻辑已实现
 - [ ] 投注中状态已实现
 - [ ] 代码已提交
-- [ ] PR 已创建
+- [ ] 代码已合并到 main 分支
 - [ ] Linear Issue 已更新
