@@ -16,6 +16,34 @@
 
 ---
 
+## 已创建的Linear Issue
+
+### VOI-76: 部署配置修复
+
+**Issue ID**: `e20bdcb7-4637-4765-895c-505d2de34753`  
+**Issue 标识**: VOI-76  
+**Issue URL**: https://linear.app/voidzyy/issue/VOI-76  
+**创建时间**: 2025-12-26  
+**状态**: Backlog  
+**优先级**: Urgent (1)  
+**Git分支**: `zhaoyiyinwinnie/voi-76-voi-76-部署配置修复-添加railwayrailpack构建配置`
+
+**问题描述**:
+- Railpack无法识别项目构建方式
+- 缺少 start.sh 启动脚本
+- 根目录缺少构建配置文件
+
+**修复内容**:
+1. 创建根目录 package.json
+2. 创建 start.sh 启动脚本
+3. 创建 nixpacks.toml 配置
+4. 更新 .env.example
+5. 创建 DEPLOYMENT.md 文档
+
+**Manus任务**: 待创建（需要手动创建或等待API Key问题解决）
+
+---
+
 ## 已创建的Manus任务
 
 ### VOI-71: 投注单基础框架与模式切换
@@ -50,6 +78,18 @@
 
 ## 待创建的任务
 
+### VOI-76: 部署配置修复 (紧急)
+- **依赖**: 无
+- **推荐模型**: `manus-1.6-lite`
+- **连接器**: GitHub + Linear
+- **状态**: Linear Issue已创建，Manus任务待创建
+- **优先级**: Urgent - 阻塞部署，需要立即处理
+- **提示词**: `docs/.knowledge/task_prompts/VOI-76_prompt.md`
+
+---
+
+## 其他待创建的任务
+
 ### VOI-72: 投注单状态管理与UI展示
 - **依赖**: VOI-71
 - **推荐模型**: `manus-1.6-lite`
@@ -80,6 +120,7 @@
 
 | Issue ID | 任务名称 | Manus任务ID | 任务URL | 连接器 | 状态 | 完成时间 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| VOI-76 | 部署配置修复 | 待创建 | [查看Issue](https://linear.app/voidzyy/issue/VOI-76) | ✅ GitHub + Linear | 待创建 | - |
 | VOI-71 | 投注单基础框架与模式切换 | HrxMPfV7AhxoVXMixwf7eo | [查看](https://manus.im/app/HrxMPfV7AhxoVXMixwf7eo) | ✅ GitHub + Linear | 执行中 | - |
 | VOI-72 | 投注单状态管理与UI展示 | - | - | - | 待创建 | - |
 | VOI-73 | 投注生命周期与等待处理 | - | - | - | 待创建 | - |
