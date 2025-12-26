@@ -3,11 +3,13 @@
 **更新日期**: 2025-12-26  
 **执行人**: Manus AI
 
+> ⚠️ **重要说明**: 本文档仅记录任务执行的技术信息和配置，**任务状态请在 [Linear 项目](https://linear.app/voidzyy/project/sports-betting-platform-b6c75c6e7fb5) 中查看**。
+
 ---
 
 ## 连接器配置
 
-为确保Manus AI能够自动访问GitHub仓库和更新Linear Issue，所有任务都配置了以下连接器：
+为确保 Manus AI 能够自动访问 GitHub 仓库和更新 Linear Issue，所有任务都配置了以下连接器：
 
 | 连接器类型 | 连接器ID | 用途 |
 | :--- | :--- | :--- |
@@ -16,120 +18,75 @@
 
 ---
 
-## 已创建的Linear Issue
+## 已完成的任务交付记录
 
 ### VOI-76: 部署配置修复
 
-**Issue ID**: `e20bdcb7-4637-4765-895c-505d2de34753`  
-**Issue 标识**: VOI-76  
-**Issue URL**: https://linear.app/voidzyy/issue/VOI-76  
-**创建时间**: 2025-12-26  
-**状态**: Backlog  
-**优先级**: Urgent (1)  
-**Git分支**: `zhaoyiyinwinnie/voi-76-voi-76-部署配置修复-添加railwayrailpack构建配置`
-
-**问题描述**:
-- Railpack无法识别项目构建方式
-- 缺少 start.sh 启动脚本
-- 根目录缺少构建配置文件
+**Linear Issue**: [VOI-76](https://linear.app/voidzyy/issue/VOI-76)  
+**GitHub PR**: 已合并  
+**完成日期**: 2025-12-26
 
 **修复内容**:
-1. 创建根目录 package.json
-2. 创建 start.sh 启动脚本
-3. 创建 nixpacks.toml 配置
-4. 更新 .env.example
-5. 创建 DEPLOYMENT.md 文档
+1. ✅ 创建根目录 package.json
+2. ✅ 创建 start.sh 启动脚本（使用 http-server）
+3. ✅ 创建 nixpacks.toml 配置
+4. ✅ 更新 .env.example
+5. ✅ 创建 DEPLOYMENT.md 文档
+6. ✅ 修复 MIME type 错误（将 serve 替换为 http-server）
 
-**Manus任务**: 待创建（需要手动创建或等待API Key问题解决）
+**技术细节**:
+- 问题：`serve` 包对 ES 模块的 MIME type 处理不正确
+- 解决：使用 `http-server` 替代，确保 `.js` 文件返回正确的 `application/javascript` MIME type
 
 ---
-
-## 已创建的Manus任务
 
 ### VOI-71: 投注单基础框架与模式切换
 
-**任务ID**: `HrxMPfV7AhxoVXMixwf7eo`  
-**任务标题**: Sports Betting Platform Bet Slip Frontend Development Task  
-**任务URL**: https://manus.im/app/HrxMPfV7AhxoVXMixwf7eo  
-**推荐模型**: `manus-1.6-lite`  
-**创建时间**: 2025-12-26  
-**状态**: 已创建，等待执行  
-**已启用连接器**: ✅ GitHub + ✅ Linear
+**Linear Issue**: [VOI-71](https://linear.app/voidzyy/issue/VOI-71)  
+**GitHub PR**: [#3](https://github.com/gdszyy/sports-betting-platform/pull/3)  
+**完成日期**: 2025-12-26
 
-**任务描述**:
-- 实现投注单基础框架
-- 支持单关/串关模式切换
-- 实现金额输入逻辑
-- 创建Zustand状态管理
+**交付内容**:
+1. ✅ 实现单关/串关模式切换
+2. ✅ 创建 Zustand 状态管理（`useBetSlipStore`）
+3. ✅ 实现 BetSlip 组件结构
+4. ✅ 实现金额输入逻辑（单关独立输入，串关全局输入）
 
-**Linear Issue**: https://linear.app/voidzyy/issue/VOI-71  
-**Git分支**: `zhaoyiyinwinnie/voi-71-feature-投注单基础框架与模式切换`
-
-**工作流程**:
-1. ✅ 自动克隆GitHub仓库
-2. ✅ 自动创建并切换到指定分支
-3. ✅ 阅读产品文档理解需求
-4. ⏳ 实现组件和状态管理
-5. ⏳ 测试功能
-6. ⏳ 自动提交代码并创建Pull Request
-7. ⏳ 自动更新Linear Issue状态为Done
+**技术细节**:
+- 状态管理：使用 Zustand 管理投注单状态
+- 组件结构：BetSlipHeader, BetSlipItem, BetSlipFooter
+- 数据结构：`BetSelection` 接口定义投注选项
 
 ---
 
-## 待创建的任务
+### VOI-67: 比赛列表模块开发
 
-### VOI-76: 部署配置修复 (紧急)
-- **依赖**: 无
-- **推荐模型**: `manus-1.6-lite`
-- **连接器**: GitHub + Linear
-- **状态**: Linear Issue已创建，Manus任务待创建
-- **优先级**: Urgent - 阻塞部署，需要立即处理
-- **提示词**: `docs/.knowledge/task_prompts/VOI-76_prompt.md`
+**Linear Issue**: [VOI-67](https://linear.app/voidzyy/issue/VOI-67)  
+**GitHub PR**: [#1](https://github.com/gdszyy/sports-betting-platform/pull/1)  
+**完成日期**: 2025-12-26
 
----
-
-## 其他待创建的任务
-
-### VOI-72: 投注单状态管理与UI展示
-- **依赖**: VOI-71
-- **推荐模型**: `manus-1.6-lite`
-- **连接器**: GitHub + Linear
-- **状态**: 待创建（等待VOI-71完成）
-
-### VOI-73: 投注生命周期与等待处理
-- **依赖**: VOI-71, VOI-72
-- **推荐模型**: `manus-1.6-lite`
-- **连接器**: GitHub + Linear
-- **状态**: 待创建（等待VOI-71, VOI-72完成）
-
-### VOI-74: 投注拒绝与打回处理
-- **依赖**: VOI-71, VOI-72, VOI-73
-- **推荐模型**: `manus-1.6-lite`
-- **连接器**: GitHub + Linear
-- **状态**: 待创建（等待VOI-73完成）
-
-### VOI-75: 高级过关功能
-- **依赖**: VOI-71, VOI-72
-- **推荐模型**: `manus-1.6`
-- **连接器**: GitHub + Linear
-- **状态**: 待创建（等待VOI-71, VOI-72完成）
+**交付内容**:
+1. ✅ 实现比赛列表展示
+2. ✅ 实现滚球标识（Live 标识）
+3. ✅ 实现内存优化（清空 markets 字段）
+4. ✅ 实现分页加载
 
 ---
 
-## 执行进度
+### VOI-66: 比赛导航模块开发
 
-| Issue ID | 任务名称 | Manus任务ID | 任务URL | 连接器 | 状态 | 完成时间 |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| VOI-76 | 部署配置修复 | 待创建 | [查看Issue](https://linear.app/voidzyy/issue/VOI-76) | ✅ GitHub + Linear | 待创建 | - |
-| VOI-71 | 投注单基础框架与模式切换 | HrxMPfV7AhxoVXMixwf7eo | [查看](https://manus.im/app/HrxMPfV7AhxoVXMixwf7eo) | ✅ GitHub + Linear | 执行中 | - |
-| VOI-72 | 投注单状态管理与UI展示 | - | - | - | 待创建 | - |
-| VOI-73 | 投注生命周期与等待处理 | - | - | - | 待创建 | - |
-| VOI-74 | 投注拒绝与打回处理 | - | - | - | 待创建 | - |
-| VOI-75 | 高级过关功能 | - | - | - | 待创建 | - |
+**Linear Issue**: [VOI-66](https://linear.app/voidzyy/issue/VOI-66)  
+**GitHub PR**: [#2](https://github.com/gdszyy/sports-betting-platform/pull/2)  
+**完成日期**: 2025-12-26
+
+**交付内容**:
+1. ✅ 实现三级联动导航（体育项目 → 赛区 → 联赛）
+2. ✅ 实现面包屑导航
+3. ✅ 实现导航状态持久化
 
 ---
 
-## 使用Manus API创建任务的示例代码
+## 使用 Manus API 创建任务的示例代码
 
 ```python
 import requests
@@ -175,17 +132,12 @@ print(response.json())
 - ✅ **GitHub连接器**: 确保有访问 `gdszyy/sports-betting-platform` 仓库的权限
 - ✅ **Linear连接器**: 确保有更新 `voidzyy` workspace 中Issue的权限
 
-### 2. 任务依赖
-- 请严格按照依赖关系执行任务
-- VOI-71 必须完成后才能开始 VOI-72 和 VOI-75
-- VOI-73 必须等待 VOI-71 和 VOI-72 完成
-- VOI-74 必须等待 VOI-73 完成
+### 2. 任务状态管理
+- ⚠️ **任务状态仅在 Linear 中维护**
+- ⚠️ **GitHub 仅记录代码交付信息**
+- ⚠️ **不要在 GitHub Issue 或 README 中维护任务状态**
 
-### 3. 模型选择
-- **VOI-71, 72, 73, 74**: 使用 `manus-1.6-lite`（常规开发任务）
-- **VOI-75**: 使用 `manus-1.6`（复杂业务逻辑）
-
-### 4. 自动化流程
+### 3. 自动化流程
 启用GitHub和Linear连接器后，Manus AI将自动：
 - 克隆仓库并创建分支
 - 实现功能并提交代码
@@ -193,8 +145,8 @@ print(response.json())
 - 更新Linear Issue状态
 - 添加评论和关联PR
 
-### 5. 监控和验证
-- 定期访问任务URL查看执行进度
+### 4. 监控和验证
+- 定期访问 [Linear 项目看板](https://linear.app/voidzyy/project/sports-betting-platform-b6c75c6e7fb5) 查看任务进度
 - 检查GitHub上的PR是否已创建
 - 验证Linear Issue状态是否已更新
 - 审查代码质量和功能完整性
@@ -203,20 +155,11 @@ print(response.json())
 
 ## 相关文档
 
-- [任务拆分总结](docs/.knowledge/TASK_BREAKDOWN_SUMMARY.md)
-- [任务执行指南](docs/.knowledge/TASK_EXECUTION_GUIDE.md)
+- [GitHub 项目规范](GITHUB_GUIDELINES.md) - 分支管理、提交规范、PR 流程
+- [TASK_EXECUTION_GUIDE.md](docs/.knowledge/TASK_EXECUTION_GUIDE.md) - 任务执行指南
 - [API域名更新说明](API_DOMAIN_UPDATE.md)
 - [前端产品交互文档](docs/design/前端产品交互文档.md)
 - [Manus API功能汇总](docs/.knowledge/ManusAPI功能汇总文档.md)
-
----
-
-## 下一步行动
-
-1. ✅ VOI-71任务已创建并启用连接器
-2. ⏳ 监控VOI-71任务执行进度
-3. ⏳ 等待VOI-71完成后，创建VOI-72和VOI-75任务
-4. ⏳ 按照依赖关系依次创建并执行后续任务
 
 ---
 
@@ -224,5 +167,6 @@ print(response.json())
 
 | 日期 | 版本 | 更新内容 |
 | :--- | :--- | :--- |
+| 2025-12-26 | 2.0 | 移除任务状态信息，仅记录技术交付信息，任务状态统一在 Linear 中管理 |
 | 2025-12-26 | 1.1 | 重新创建VOI-71任务，添加GitHub和Linear连接器配置 |
 | 2025-12-26 | 1.0 | 初始版本，创建第一个任务 |

@@ -43,32 +43,27 @@ sports-betting-platform/
 
 ## 工作流程
 
-### 1. 任务分派流程
+### 1. 任务管理
 
-1. **Linear Backlog** → Manager Agent 拉取待办任务
-2. **难度评估** → 根据多因子算法计算任务难度
-3. **模型选择** → 匹配最优 Manus Agent 模型
-   - `manus-1.6-lite`: 常规任务（优先使用）
-   - `manus-1.6`: 拆解后仍复杂的任务
-   - `manus-1.6-max`: 无法解耦的复杂任务（谨慎使用）
-4. **上下文注入** → 自动从知识库检索相关文档
-5. **任务执行** → Executor Agent 开发并提交 PR
+- **Linear** 作为唯一任务状态管理中心
+- **GitHub** 仅用于代码托管和版本控制
+- 任务进度请访问 [Linear 项目看板](https://linear.app/voidzyy/project/sports-betting-platform-b6c75c6e7fb5)
 
-### 2. 人在回路的梯度下降
+### 2. 开发流程
 
-- **Agent 即"模型"**: 每次代码提交是对目标的一次梯度下降尝试
-- **人即"目标函数"**: PR 审核和反馈提供优化梯度
-- **知识库即"权重"**: 固化项目核心设计和最佳实践
-- **交接文档即"会话持久化"**: 确保上下文无损传递
+1. 在 Linear 中选择任务
+2. 创建功能分支：`{username}/voi-{number}-{type}-{desc}`
+3. 开发功能并提交代码
+4. 创建 Pull Request 并关联 Linear Issue
+5. 代码审查通过后合并
+6. 在 Linear 中更新任务状态为 Done
 
-## 模型选择策略
+### 3. 人在回路的梯度下降
 
-| 任务类型 | 推荐模型 | 说明 |
-| :--- | :--- | :--- |
-| 常规开发任务 | `manus-1.6-lite` | 单一功能、明确需求 |
-| 复杂任务（可拆解） | 拆解后用 `lite` | 先分解再执行 |
-| 复杂任务（拆解后仍复杂） | `manus-1.6` | 需要更强推理能力 |
-| 无法解耦的复杂任务 | `manus-1.6-max` | 仅在必要时使用 |
+- **Agent 即“模型”**: 每次代码提交是对目标的一次梯度下降尝试
+- **人即“目标函数”**: PR 审核和反馈提供优化梯度
+- **知识库即“权重”**: 固化项目核心设计和最佳实践
+- **交接文档即“会话持久化”**: 确保上下文无损传递
 
 ## 快速开始
 
@@ -79,15 +74,24 @@ git clone https://github.com/gdszyy/sports-betting-platform.git
 # 进入项目目录
 cd sports-betting-platform
 
-# 查看知识库文档
-cat docs/.knowledge/HANDOVER_DOCUMENT.md
+# 安装依赖
+cd frontend && pnpm install
+
+# 启动开发服务器
+pnpm dev
 ```
+
+## 项目规范
+
+- [GitHub 项目规范](GITHUB_GUIDELINES.md) - 分支管理、提交规范、PR 流程
+- [CONTRIBUTING.md](CONTRIBUTING.md) - 贡献指南
+- [DEPLOYMENT.md](DEPLOYMENT.md) - 部署指南
 
 ## 相关链接
 
 - [GitHub Repository](https://github.com/gdszyy/sports-betting-platform)
-- [Linear Project](#) (待配置)
-- [Railway Deployment](#) (待配置)
+- [Linear Project](https://linear.app/voidzyy/project/sports-betting-platform-b6c75c6e7fb5)
+- [Railway Deployment](https://sports-betting-platform-production.up.railway.app)
 
 ## License
 

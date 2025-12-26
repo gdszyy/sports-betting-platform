@@ -6,7 +6,7 @@
 
 - `package.json`: 根目录下的配置文件，定义了安装、构建和启动脚本。
 - `nixpacks.toml`: Nixpacks 构建配置，指定了运行环境和构建步骤。
-- `start.sh`: 生产环境启动脚本，使用 `serve` 提供静态文件服务。
+- `start.sh`: 生产环境启动脚本，使用 `http-server` 提供静态文件服务，确保 ES 模块的 MIME type 正确。
 - `.env.example`: 环境变量示例文件。
 
 ## 部署步骤
