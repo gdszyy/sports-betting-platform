@@ -107,6 +107,7 @@ const BetSlipFooter: React.FC = () => {
       <button
         disabled={isSubmitDisabled}
         className={`w-full py-3 rounded-md font-bold text-white transition-all ${
+          !isSubmitDisabled
             ? 'bg-blue-600 hover:bg-blue-700 shadow-lg active:transform active:scale-[0.98]' 
             : 'bg-gray-600 cursor-not-allowed opacity-50'
         }`}
